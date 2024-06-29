@@ -1,39 +1,28 @@
-const http = require('http');
-const {readFileSync} = require('fs');
+const express = require('express');
+const app = express();
+const {products} = require('./data');
 
-const homePage = readFileSync('./Calculator/index.html'); 
-const CSSPage = readFileSync('./Calculator/style.css'); 
-const JSPage = readFileSync('./Calculator/script.js'); 
-
-
-const server = http.createServer((req,res) =>{
-    const url = req.url
-    console.log(url)
-    if(url === '/'){
-        console.log(req.method)
-        res.writeHead(200,{'Content-type': 'text/html'})
-        res.write(homePage)
-        res.end();
-    }
-    else if(url === '/style.css'){
-        res.writeHead(200,{'Content-type': 'text/css'})
-        res.write(CSSPage)
-        res.end();
-    }
-    else if(url === '/script.js'){
-        res.writeHead(200,{'Content-type': 'text/javascript'})
-        res.write(JSPage)
-        res.end();
-    }
-    else if(url === '/about'){
-        res.writeHead(200,{'Content-type': 'text/html'})
-        res.write('<h1>ABOUT PAGE</h1>')
-        res.end();
-    }
-    else{
-        res.writeHead(400,{'Content-type': 'text/html'})
-        res.write('<h1>PAGE NOT FOUND </h1>')
-        res.end();
-    }
+app.get('/',(req,res) =>{
+    res.send('<h1>Home page </h1><a href= "/api/products">Products</a>')
 })
-server.listen(5000);
+
+app.get('/api/products',(req,res) =>{
+    const newProd = products.map((product) =>{
+        const{id,name,image} = product;
+        return {id,name,image};
+    })
+    res.json(newProd);
+})
+
+app.get('/api/products/:productId',(req,res)=>{
+    const {productId} = req.params;
+    const singleProd = products.find((product) => product.id === Number(productId));
+    if(!singleProd){
+        res.status(404).send("Product does not exist");
+    }
+    res.json(singleProd);
+})
+
+app.listen(5000,() =>{
+    console.log("Listening to port number 5000");
+});
