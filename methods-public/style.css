@@ -1,0 +1,55 @@
+body{
+    background-color: #80808087;
+    margin: 0;
+}
+
+form{
+    font-size: 2rem;
+}
+
+#text{
+    font-size: 2rem;
+    padding: 10px;
+    color: rgb(110, 103, 103);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0, 6%, 93%, 0.843);
+    border: 2px solid;
+    border-radius: 10px;
+    border: none;
+    width: 30%; /* Change to make it bigger */
+    height: 200px; /* Change to make it bigger */
+    margin: 20px; /* Optional: space around the container */
+}
+#box{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+button{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 20px;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    background-color: greenyellow;
+    color: rgb(110, 103, 103);
+
+}
+input{
+    font-size: 1.2rem;
+    
+}
