@@ -1,20 +1,27 @@
-body{
+body {
     background-color: #80808087;
     margin: 0;
 }
 
-form{
+html {
+    background-color: #80808087;
+}
+
+form {
     font-size: 2rem;
 }
 
-#text{
+form label, form input {
+    font-size: 2rem;
+}
+
+#text {
     font-size: 2rem;
     padding: 10px;
     color: rgb(110, 103, 103);
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 #container {
@@ -25,16 +32,19 @@ form{
     border: 2px solid;
     border-radius: 10px;
     border: none;
-    width: 30%; /* Change to make it bigger */
-    height: 200px; /* Change to make it bigger */
-    margin: 20px; /* Optional: space around the container */
+    width: 30%;
+    height: 200px;
+    margin: 20px;
+    overflow: auto;
 }
-#box{
+
+#box {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
-button{
+
+button {
     font-size: 2rem;
     display: flex;
     align-items: center;
@@ -47,9 +57,8 @@ button{
     border-radius: 15px;
     background-color: greenyellow;
     color: rgb(110, 103, 103);
-
 }
-input{
+
+input {
     font-size: 1.2rem;
-    
 }

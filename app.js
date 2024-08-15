@@ -1,21 +1,22 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const {people} = require('./data');
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./methods-public'));
 
-app.get('/api', (req, res) => {
-    res.status(200).json({sucess:true,data:people});   
-});
+
+app.get('/api', (req,res) =>{
+    res.json(people);
+})
 
 app.post('/login-user', (req, res) => {
-    const {username,password} = req.body;
+    const{username,password} = req.body;
 
-    res.send(`You have entered the username:${username} with a password of ${password}`);
-});
+    res.send(`Entered user name is ${username} and password is ${password}`);
+      
+  });
 
-// finish it by tomorrow
-app.listen(5000,(req,res) =>{
-    console.log("Listening on port number 5000");
+app.listen(5000, () => {
+    console.log(`Server started on port 5000`);
 });
