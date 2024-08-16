@@ -3,14 +3,14 @@ const app = express();
 
 //const {people} = require('./data');
 
+const logRouter = require('./Routes/log');
+app.use('/log',logRouter);
 const apiRouter  = require('./Routes/api');
+app.use('/api',apiRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static('./methods-public'));
-
-app.use('/api',apiRouter);
-
 
 
 app.listen(5000, () => {
